@@ -21,7 +21,24 @@ export default function Home() {
     if (savedFavorites) {
       setFavorites(JSON.parse(savedFavorites));
     }
+    // Load popular movies on initial load
+    loadPopularMovies();
   }, []);
+
+  const loadPopularMovies = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/movies/search?query=popular');
+      if (response.ok) {
+        const data = await response.json();
+        setMovies(data.results.slice(0, 12)); // Show first 12 movies
+      }
+    } catch (err) {
+      console.error('Error loading popular movies:', err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // Save favorites to localStorage whenever they change
   useEffect(() => {
@@ -141,12 +158,25 @@ export default function Home() {
             {isLoading && (
               <div className="mt-8 text-center">
                 <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                <p className="mt-2 text-gray-600 dark:text-gray-400">Searching movies...</p>
+                <p className="mt-2 text-gray-600 dark:text-gray-400">Loading movies...</p>
               </div>
             )}
 
             {!isLoading && movies.length > 0 && (
-              <MovieGrid movies={movies} onMovieClick={handleMovieClick} />
+              <div className="mt-8">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  {movies.length === 12 ? 'Popular Movies' : `Search Results (${movies.length})`}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {movies.map((movie) => (
+                    <MovieCard
+                      key={movie.id}
+                      movie={movie}
+                      onClick={() => handleMovieClick(movie.id)}
+                    />
+                  ))}
+                </div>
+              </div>
             )}
           </>
         ) : (
