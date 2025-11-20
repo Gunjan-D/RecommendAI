@@ -1,15 +1,5 @@
 # Movie Explorer - Setup & Deployment Guide
 
-## Current Status
-✅ Code is committed to local Git repository
-⏳ Node.js needs to be installed
-⏳ Dependencies need to be installed
-⏳ API key needs to be configured
-⏳ GitHub repository needs to be created
-⏳ Code needs to be pushed to GitHub
-⏳ Application needs to be deployed
-
----
 
 ## STEP 1: Install Node.js (DO THIS FIRST!)
 
@@ -37,10 +27,10 @@ Node.js is required to run npm commands and the Next.js application.
 2. Create a free account
 3. Go to: **https://www.themoviedb.org/settings/api**
 4. Request an API key (choose "Developer" option)
-5. Copy your API key (it looks like: `1234abcd5678efgh9012ijkl3456mnop`)
+5. Copy your API key (it looks like: `1234abcd5678efgh9012ijk....`)
 
 ### Configure API Key:
-You already created `.env.local` file. Now edit it:
+I already have created `.env.local` file. Now edit it:
 
 1. Open `.env.local` in VS Code
 2. Replace `your_api_key_here` with your actual TMDB API key:
@@ -89,26 +79,26 @@ npm run dev
 6. Click "Create repository"
 
 ### Copy the repository URL:
-It will look like: `https://github.com/YOUR-USERNAME/movie-explorer.git`
+It will look like: `https://github.com/Gunjan-D/movie-explorer.git`
 
 ---
 
 ## STEP 5: Push Code to GitHub
 
-### Run these commands (replace with your actual repo URL):
+### Run these commands:
 
 ```powershell
-# Rename branch from master to main
+
 git branch -M main
 
-# Add your GitHub repository as remote (replace URL!)
-git remote add origin https://github.com/YOUR-USERNAME/movie-explorer.git
+# Add your GitHub repository as remote 
+git remote add origin https://github.com/Gunjan-D/movie-explorer.git
 
 # Push code to GitHub
 git push -u origin main
 ```
 
-### Example (replace Gunjan-D with your username):
+
 ```powershell
 git branch -M main
 git remote add origin https://github.com/Gunjan-D/movie-explorer.git
@@ -143,93 +133,4 @@ Usually takes 2-3 minutes. You'll get a URL like:
 
 ---
 
-## STEP 7: Submit Your Project
 
-### What to Include in Your Email:
-
-**Subject:** Take-Home Project Submission - Movie Explorer
-
-**Body:**
-```
-Hello,
-
-Please find my Movie Explorer project submission below:
-
-GitHub Repository: https://github.com/YOUR-USERNAME/movie-explorer
-Live Demo: https://movie-explorer-abc123.vercel.app
-
-Setup Instructions: See README.md in the repository
-API Key Note: You'll need to add your own TMDB_API_KEY environment variable
-
-Technical Highlights:
-- Next.js 14 with App Router and TypeScript
-- Server-side API proxy for secure key management
-- LocalStorage for favorites persistence
-- Responsive design with Tailwind CSS
-- Error handling for edge cases
-
-Time Spent: Approximately 3 hours
-
-I'm looking forward to discussing my implementation decisions and tradeoffs in the technical interview.
-
-Best regards,
-[Your Name]
-```
-
-Replace:
-- `YOUR-USERNAME` with your GitHub username
-- `abc123` with your actual Vercel deployment URL
-- `[Your Name]` with your name
-
----
-
-## Troubleshooting
-
-### If npm commands still don't work after installing Node.js:
-1. Close VS Code completely
-2. Restart your computer
-3. Open VS Code again
-4. Try `node --version` and `npm --version`
-
-### If the app doesn't start:
-1. Check `.env.local` has your actual API key
-2. Delete `node_modules` folder and `.next` folder
-3. Run `npm install` again
-4. Run `npm run dev` again
-
-### If Vercel deployment fails:
-1. Check environment variables in Vercel dashboard
-2. Check build logs for specific errors
-3. Verify the code works locally first
-
-### If movies don't load:
-1. Verify your TMDB API key is valid
-2. Check browser console for errors (F12 → Console tab)
-3. Verify API key is in `.env.local` (locally) or Vercel environment variables
-
----
-
-## Summary Checklist
-
-- [ ] Node.js installed and verified (`node --version` works)
-- [ ] TMDB API key obtained
-- [ ] `.env.local` file configured with API key
-- [ ] Dependencies installed (`npm install` completed)
-- [ ] App tested locally (`npm run dev` works)
-- [ ] GitHub repository created
-- [ ] Code pushed to GitHub
-- [ ] Vercel deployment successful
-- [ ] Live URL accessible
-- [ ] Submission email sent
-
----
-
-## Questions?
-
-If you encounter issues:
-1. Check the error message carefully
-2. Verify each step was completed
-3. Google the specific error
-4. Check VS Code terminal output for details
-
-Good luck! 🎬🚀
