@@ -3,17 +3,6 @@
 ## Project Overview
 Next.js Movie Explorer application with TypeScript, TMDB API integration, and favorites management.
 
-## Progress Tracking
-- [x] Create instructions.md file
-- [ ] Get project setup info
-- [ ] Scaffold Next.js project
-- [ ] Create project structure
-- [ ] Implement movie search feature
-- [ ] Implement movie details view
-- [ ] Implement favorites system
-- [ ] Add error handling
-- [ ] Create README documentation
-- [ ] Install dependencies and compile
 
 ## Technical Stack
 - Next.js 14+ with App Router
