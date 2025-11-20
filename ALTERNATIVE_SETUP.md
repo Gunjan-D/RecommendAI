@@ -1,6 +1,6 @@
-# Alternative Installation Methods for Node.js (No Admin Required)
+# Specual Note: Alternative Installation Methods for Node.js (No Admin Required, I faced this issue) 
 
-## If You Don't Have Admin Access
+## If You Don't Have Admin Access (I was not having admin access)
 
 If you can't install Node.js because you don't have administrator privileges, here are alternatives:
 
@@ -37,7 +37,7 @@ Then restart VS Code.
 
 You can deploy directly to Vercel without installing Node.js locally:
 
-1. **Ensure code is on GitHub** (you already did this ✅)
+1. **Ensure code is on GitHub** 
 2. **Go to Vercel**: https://vercel.com
 3. **Sign up with GitHub**
 4. **Import your repository**: movie-explorer
@@ -60,18 +60,9 @@ This way you can skip local testing and deploy directly.
 
 ---
 
-## Option 4: Contact Your IT Department
-
-If this is a work or school computer with restricted access:
-- Contact your IT administrator
-- Ask them to install Node.js for you
-- Or ask for temporary admin privileges
 
 ---
 
-## Recommended Path Forward
-
-Since you have Git working and your code is ready:
 
 **SKIP LOCAL TESTING → DEPLOY DIRECTLY:**
 1. Create GitHub repository (if not done)
