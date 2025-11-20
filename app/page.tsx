@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import SearchBar from '@/components/SearchBar';
-import MovieGrid from '@/components/MovieGrid';
+import MovieCard from '@/components/MovieCard';
 import MovieDetails from '@/components/MovieDetails';
 import FavoritesList from '@/components/FavoritesList';
 import { Movie, Favorite } from '@/types';
