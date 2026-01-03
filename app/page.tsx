@@ -82,8 +82,9 @@ export default function Home() {
 
     try {
       const response = await fetch(`/api/movies/search?query=${encodeURIComponent(query)}`);
-      
-      if (!response.ok) {
+      const data = await response.json();
+
+      if (response.ok) {
         setMovies(data.results);
       }
     } catch (err) {

@@ -1,0 +1,13 @@
+{
+  "name": "recommend-ai",
+  "version": 2,
+  "framework": "nextjs",
+  "env": {
+    "TMDB_API_KEY": "demo_key_replace_with_real_key"
+  },
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 10
+    }
+  }
+}

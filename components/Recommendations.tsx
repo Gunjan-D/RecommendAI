@@ -55,9 +55,10 @@ export default function Recommendations({
 
       // Get genre-based recommendations if user has favorites
       if (favorites.length > 0) {
-        const genreIds = [...new Set(
+        const uniqueGenres = new Set(
           favorites.flatMap(fav => fav.genre_ids || [])
-        )].slice(0, 3).join(',');
+        );
+        const genreIds = Array.from(uniqueGenres).slice(0, 3).join(',');
 
         if (genreIds) {
           const genreResponse = await fetch(
