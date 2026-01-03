@@ -4,7 +4,7 @@
 
 A comprehensive, ML-powered movie recommendation platform built with Next.js 14, featuring multiple recommendation algorithms and intelligent user behavior analysis.
 
-###  **Live Demo**: [https://recommend-ai-ten.vercel.app](https://recommend-ai-ten.vercel.app)
+###  **Live Demo**: [https://recommend-ai-nine.vercel.app](https://recommend-ai-nine.vercel.app)
 
 ###  Features
 
