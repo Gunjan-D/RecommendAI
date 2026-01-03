@@ -56,7 +56,7 @@ export default function Recommendations({
       // Get genre-based recommendations if user has favorites
       if (favorites.length > 0) {
         const uniqueGenres = new Set(
-          favorites.flatMap(fav => fav.genre_ids || [])
+          favorites.flatMap(fav => fav.movie.genres?.map(g => g.id) || [])
         );
         const genreIds = Array.from(uniqueGenres).slice(0, 3).join(',');
 
@@ -69,12 +69,12 @@ export default function Recommendations({
           if (genreData.results) {
             // Filter out movies already in favorites or collaborative recommendations
             const existingIds = new Set([
-              ...favorites.map(fav => fav.id),
-              ...collaborativeData.recommendations?.map(rec => rec.id) || []
+              ...favorites.map(fav => fav.movie.id),
+              ...collaborativeData.recommendations?.map((rec: Movie) => rec.id) || []
             ]);
             
             const filteredGenreMovies = genreData.results
-              .filter(movie => !existingIds.has(movie.id))
+              .filter((movie: Movie) => !existingIds.has(movie.id))
               .slice(0, 6);
 
             if (filteredGenreMovies.length > 0) {
@@ -96,12 +96,12 @@ export default function Recommendations({
       
       if (highRatedData.results) {
         const existingIds = new Set([
-          ...favorites.map(fav => fav.id),
+          ...favorites.map(fav => fav.movie.id),
           ...newSections.flatMap(section => section.movies.map(m => m.id))
         ]);
         
         const filteredHighRated = highRatedData.results
-          .filter(movie => !existingIds.has(movie.id))
+          .filter((movie: Movie) => !existingIds.has(movie.id))
           .slice(0, 6);
 
         if (filteredHighRated.length > 0) {

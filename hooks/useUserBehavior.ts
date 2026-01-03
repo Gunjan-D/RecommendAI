@@ -64,7 +64,7 @@ export const useUserBehaviorTracking = () => {
       behavior.searchHistory = actions
         .filter(action => action.type === 'search')
         .map(action => action.query)
-        .filter(query => query)
+        .filter((query): query is string => query !== undefined)
         .slice(-20); // Keep last 20 searches
 
       // Extract viewed movies
@@ -73,13 +73,15 @@ export const useUserBehaviorTracking = () => {
           actions
             .filter(action => action.movieId && action.type === 'view_movie')
             .map(action => action.movieId)
+            .filter((id): id is number => id !== undefined)
         )
       ].slice(-50); // Keep last 50 viewed movies
 
       // Extract rating preferences
       const ratings = actions
         .filter(action => action.type === 'rate_movie' && action.rating)
-        .map(action => action.rating);
+        .map(action => action.rating)
+        .filter((rating): rating is number => rating !== undefined);
 
       if (ratings.length > 0) {
         behavior.preferredRatingRange = [
